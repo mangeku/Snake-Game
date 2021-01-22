@@ -5,7 +5,7 @@ function init(){
     w = gameCanvas.width; 
     h = gameCanvas.height; 
     pen = gameCanvas.getContext('2d');
-    pen.font = "40px Arial";  
+   
     blockSize = 50; 
     gameOver = false; 
     score = 0; 
@@ -56,6 +56,8 @@ function init(){
             }
             this.cells.unshift({x:headX,y:headY}); 
             let boundaryX = Math.round(w/blockSize); 
+            let boundaryY = Math.round(h/blockSize);
+            console.log(headX + " " + headY); 
             if(headX >= boundaryX || headY  >= boundaryY || headX < 0 || headY < 0){
                 gameOver = true; 
             }
@@ -102,6 +104,7 @@ function draw(){
     pen.drawImage(foodImage,food.x*blockSize ,food.y*blockSize , blockSize , blockSize); 
     pen.drawImage(scoreImage,18,25,blockSize*2,blockSize*2); 
     pen.fillStyle = "red"; 
+    pen.font = "40px Arial";  
     pen.fillText(score,55,65); 
 }
 
